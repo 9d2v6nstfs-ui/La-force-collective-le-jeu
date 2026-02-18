@@ -1,248 +1,229 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>La Force Collective — Le jeu</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Force Collective — Le jeu</title>
 
-  <style>
-    :root{
-      --bg: #f3efe7;
-      --paper: #fbfaf6;
-      --ink: #151515;
-      --ink-soft: rgba(0,0,0,.62);
-      --gold: #c7a35a;
-      --gold-soft: rgba(199,163,90,.20);
-      --border: rgba(0,0,0,.10);
-      --shadow: 0 18px 55px rgba(0,0,0,.12);
-      --radius: 18px;
-      --max: 980px;
-    }
+<style>
+:root{
+  --bg:#f3efe7;
+  --paper:#fbfaf6;
+  --ink:#151515;
+  --gold:#c7a35a;
+  --border:rgba(0,0,0,.10);
+  --shadow:0 18px 55px rgba(0,0,0,.12);
+}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(1200px 500px at 50% 0%, #ffffff 0%, var(--bg) 55%, #eae3d8 100%);
-    }
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
 
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 26px 16px 44px; }
+.wrap{
+  max-width:900px;
+  margin:auto;
+  padding:30px 16px 50px;
+}
 
-    .hero{
-      background: var(--paper);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(0,0,0,.06);
-      overflow:hidden;
-    }
+.hero{
+  background:var(--paper);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
 
-    .topbar{
-      display:flex; align-items:center; gap:14px;
-      padding: 18px 20px;
-      background: linear-gradient(90deg, #1b1b1b 0%, #2a2a2a 55%, #1b1b1b 100%);
-      color: #fff;
-    }
+.topbar{
+  background:#1c1c1c;
+  color:white;
+  padding:18px 22px;
+  font-weight:700;
+  letter-spacing:.05em;
+}
 
-    .mark{
-      width:40px; height:40px; border-radius: 12px;
-      display:grid; place-items:center;
-      background: rgba(199,163,90,.18);
-      border: 1px solid rgba(199,163,90,.35);
-      flex: 0 0 auto;
-    }
+.subtitle{
+  font-size:13px;
+  opacity:.8;
+  margin-top:4px;
+}
 
-    .brand{ line-height:1.1; }
-    .brand .name{
-      font-weight: 850; letter-spacing: .06em;
-      text-transform: uppercase; font-size: 15px;
-    }
-    .brand .sub{ margin-top:4px; opacity:.9; font-size: 13px; }
+.content{
+  padding:26px 22px 32px;
+}
 
-    .content{ padding: 24px 20px 28px; }
+.banner{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:22px;
+}
 
-    .banner{
-      display:flex; align-items:center; gap:16px;
-      padding: 18px 16px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #fff;
-    }
+.cone{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  background:rgba(199,163,90,.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .cone{
-      width:54px; height:54px; border-radius: 16px;
-      background: linear-gradient(180deg, var(--gold-soft), rgba(199,163,90,.06));
-      border: 1px solid rgba(0,0,0,.08);
-      display:grid; place-items:center; flex: 0 0 auto;
-    }
+h1{
+  margin:0;
+  font-size:16px;
+  font-weight:500;
+  opacity:.6;
+}
 
-    h1{ margin:0; font-size: 26px; letter-spacing:.02em; }
-    .banner p{ margin:8px 0 0; color: var(--ink-soft); font-size: 14px; }
+.divider{
+  width:120px;
+  height:3px;
+  background:var(--gold);
+  margin:14px 0 6px;
+  border-radius:6px;
+}
 
-    .divider{
-      width: 140px; height: 3px; margin: 18px 0 6px;
-      background: var(--gold); border-radius: 999px; opacity:.9;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 16px;
-      margin-top: 18px;
-      align-items: start;
-    }
+.card{
+  background:white;
+  border-radius:14px;
+  border:1px solid var(--border);
+}
 
-    .card{
-      background:#fff;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      overflow:hidden;
-    }
+.card .head{
+  padding:12px 14px;
+  font-weight:700;
+  font-size:13px;
+  background:rgba(199,163,90,.15);
+}
 
-    .card .head{
-      padding: 12px 14px;
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing:.05em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,.68);
-      background: linear-gradient(180deg, rgba(199,163,90,.18), rgba(199,163,90,.06));
-      border-bottom: 1px solid rgba(0,0,0,.06);
-    }
+.card .body{
+  padding:14px 16px 18px;
+  font-size:14px;
+}
 
-    .card .body{
-      padding: 14px 16px 16px;
-      color: var(--ink-soft);
-      font-size: 14px;
-      line-height: 1.5;
-    }
+.steps{
+  padding-left:18px;
+  margin:10px 0;
+}
 
-    .steps{ margin: 10px 0 0; padding-left: 18px; color: rgba(0,0,0,.72); }
-    .steps li{ margin: 6px 0; }
+.steps li{
+  margin:6px 0;
+}
 
-    .meta{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
-    .pill{
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(199,163,90,.10);
-      color: rgba(0,0,0,.75);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 650;
-    }
-    .pill.full{ width:100%; border-radius: 14px; }
+.pill{
+  display:inline-block;
+  border:1px solid var(--border);
+  background:rgba(199,163,90,.12);
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  margin:4px 4px 0 0;
+}
 
-    .links{ display:flex; flex-direction:column; gap:10px; margin-top: 10px; }
-    .fake-link{
-      display:flex; justify-content:space-between; align-items:center;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: #fff;
-      text-decoration:none;
-      color: rgba(0,0,0,.82);
-      font-weight: 700;
-    }
-    .fake-link span{ color: rgba(0,0,0,.45); font-weight: 700; font-size: 12px; }
-    .fake-link:active{ transform: scale(.99); }
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:10px;
+}
 
-    .note{ margin-top: 12px; font-size: 12px; color: rgba(0,0,0,.55); }
+.fake{
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  text-decoration:none;
+  color:black;
+  font-weight:600;
+  display:flex;
+  justify-content:space-between;
+}
 
-    .footer{ margin-top: 16px; text-align:center; font-size: 12px; color: rgba(0,0,0,.55); }
+.footer{
+  text-align:center;
+  font-size:12px;
+  opacity:.5;
+  margin-top:18px;
+}
 
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-      h1{ font-size: 24px; }
-    }
-  </style>
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="topbar">
-        <div class="mark" aria-hidden="true">
-          <!-- icône "bulles" -->
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M6.5 14.5c-2.5 0-4.5-1.8-4.5-4s2-4 4.5-4h5c2.5 0 4.5 1.8 4.5 4s-2 4-4.5 4H10l-3 2v-2H6.5z" fill="#C7A35A"/>
-            <path d="M13.6 17.6c-2.2 0-4-1.6-4-3.6 0-.2 0-.4.1-.6h2c0 .1-.1.3-.1.6 0 1 .9 1.8 2 1.8H15l2.6 1.8-.6-1.8h.5c1.1 0 2-.8 2-1.8s-.9-1.8-2-1.8H15v-1.8h2.5c2.2 0 4 1.6 4 3.6s-1.8 3.6-4 3.6h-1l1.2 3.6-4.2-2.8h-.5z" fill="#F2E6CF"/>
-          </svg>
-        </div>
-        <div class="brand">
-          <div class="name">La Force Collective</div>
-          <div class="sub">Le jeu</div>
-        </div>
-      </div>
+<div class="wrap">
+<div class="hero">
 
-      <div class="content">
-        <div class="banner">
-          <div class="cone" aria-hidden="true">
-            <!-- logo "construction" -->
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2l7 20H5L12 2z" fill="#C7A35A"/>
-              <path d="M8.3 14h7.4" stroke="#151515" stroke-width="1.4" opacity=".35"/>
-              <path d="M7.3 17h9.4" stroke="#151515" stroke-width="1.4" opacity=".25"/>
-              <path d="M9 11h6" stroke="#151515" stroke-width="1.4" opacity=".45"/>
-            </svg>
-          </div>
-          <div>
-            <h1>Site en cours de construction</h1>
-            <div class="divider"></div>
-            <p>Le contenu arrive bientôt. En attendant, voici l’essentiel du jeu.</p>
-          </div>
-        </div>
+<div class="topbar">
+LA FORCE COLLECTIVE  
+<div class="subtitle">Le jeu</div>
+</div>
 
-        <div class="grid">
-          <div class="card">
-            <div class="head">Principe du jeu</div>
-            <div class="body">
-              <ol class="steps">
-                <li>Tirer une carte au hasard</li>
-                <li>Chacun répond en 30–60 secondes</li>
-                <li>Pas de débat, uniquement de l’écoute</li>
-                <li>Un tour de table suffit</li>
-              </ol>
+<div class="content">
 
-              <div class="meta">
-                <div class="pill">Durée : 10 à 20 minutes</div>
-                <div class="pill">Participants : jusqu’à 12</div>
-                <div class="pill">Moment idéal : début de réunion</div>
-                <div class="pill full">Conseil : une seule règle d’or — répondre simplement, écouter pleinement.</div>
-              </div>
-            </div>
-          </div>
+<div class="banner">
+<div class="cone">🚧</div>
+<div>
+<h1>Site en cours de construction</h1>
+<div class="divider"></div>
+</div>
+</div>
 
-          <div class="card">
-            <div class="head">Accès (bientôt)</div>
-            <div class="body">
-              <div class="links">
-                <a class="fake-link" href="#" onclick="return false;">
-                  Règles du jeu <span>à venir</span>
-                </a>
-                <a class="fake-link" href="#" onclick="return false;">
-                  Guide du manager <span>à venir</span>
-                </a>
-                <a class="fake-link" href="#" onclick="return false;">
-                  Ressources utiles <span>à venir</span>
-                </a>
-                <a class="fake-link" href="#" onclick="return false;">
-                  Personnalité des joueurs <span>à venir</span>
-                </a>
-              </div>
+<div class="grid">
 
-              <div class="note">
-                Ces liens sont volontairement inactifs pour le moment.
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="card">
+<div class="head">Principe du jeu</div>
+<div class="body">
 
-        <div class="footer">
-          © La Force Collective — Le jeu
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="steps">
+<li>Tirer une carte au hasard</li>
+<li>Chacun répond en 30–60 secondes</li>
+<li>Pas de débat, uniquement de l’écoute</li>
+<li>Un tour de table suffit</li>
+<li>Construire ensemble le mur des ressources</li>
+</ol>
+
+<div>
+<span class="pill">Durée : 10–20 min</span>
+<span class="pill">Participants : jusqu’à 12</span>
+<span class="pill">Moment idéal : début de réunion</span>
+<span class="pill">Conseil : répondre simplement et écouter</span>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<div class="head">Accès (bientôt)</div>
+<div class="body">
+
+<div class="links">
+<a class="fake" href="#">Règles du jeu <span>à venir</span></a>
+<a class="fake" href="#">Guide du manager <span>à venir</span></a>
+<a class="fake" href="#">Ressources utiles <span>à venir</span></a>
+<a class="fake" href="#">Personnaliser les thèmes <span>à venir</span></a>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+© La Force Collective — Le jeu
+</div>
+
+</div>
+</div>
+</div>
 </body>
 </html>
