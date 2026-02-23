@@ -146,6 +146,77 @@ h1{
   justify-content:space-between;
 }
 
+/* --- AJOUT : section Communauté --- */
+.community{
+  margin-top:18px;
+}
+
+.community .intro{
+  margin:0 0 12px;
+  font-size:13px;
+  opacity:.8;
+}
+
+.community-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+}
+
+.info-card{
+  background:white;
+  border-radius:14px;
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+
+.info-card .head{
+  padding:12px 14px;
+  font-weight:700;
+  font-size:13px;
+  background:rgba(199,163,90,.15);
+}
+
+.info-card .body{
+  padding:14px 16px 16px;
+  font-size:14px;
+}
+
+.muted{
+  opacity:.7;
+  font-size:13px;
+  margin:10px 0 6px;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--ink);
+  border:1px solid var(--border);
+  background:rgba(199,163,90,.12);
+  font-weight:700;
+  font-size:13px;
+}
+
+.btn:hover{
+  background:rgba(199,163,90,.18);
+}
+
+.btn-ghost{
+  background:transparent;
+}
+
 .footer{
   text-align:center;
   font-size:12px;
@@ -155,6 +226,7 @@ h1{
 
 @media(max-width:700px){
   .grid{grid-template-columns:1fr;}
+  .community-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -201,6 +273,70 @@ LA FORCE COLLECTIVE
 
 </div>
 </div>
+
+<!-- ===== AJOUT : Communauté (entre Principe du jeu et Accès) ===== -->
+<div class="community">
+  <div class="divider" aria-hidden="true"></div>
+  <p class="intro">
+    Trois espaces pour faire vivre le jeu : devenir ambassadeur·rice, demander de l’aide, ou partager ton avis.
+  </p>
+
+  <div class="community-grid">
+
+    <div class="info-card" id="ambassadeurs">
+      <div class="head">Ambassadeurs</div>
+      <div class="body">
+        <div>
+          Vous accepteriez qu’un manager puisse assister à un jeu pour faciliter sa future pratique ?
+        </div>
+
+        <div class="muted">Candidature par e-mail :</div>
+        <div class="actions">
+          <a class="btn" href="mailto:CONTACT_EMAIL?subject=Candidature%20Ambassadeur%20-%20La%20Force%20Collective%20-%20Le%20Jeu">
+            Candidater
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card" id="aide">
+      <div class="head">Aide</div>
+      <div class="body">
+        <div>
+          Vous cherchez un ambassadeur pour pouvoir tester plusieurs pratiques du jeu ? Vous avez des questions sur le jeu ?
+        </div>
+
+        <div class="muted">Contact :</div>
+        <div class="actions">
+          <a class="btn" href="mailto:CONTACT_EMAIL?subject=Question%20/%20Aide%20-%20La%20Force%20Collective%20-%20Le%20Jeu">
+            Écrire
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card" id="avis">
+      <div class="head">Avis</div>
+      <div class="body">
+        <div>Vous voulez envoyer votre avis utilisateur ?</div>
+
+        <div class="muted">Contact :</div>
+        <div class="actions">
+          <a class="btn" href="mailto:CONTACT_EMAIL?subject=Avis%20Utilisateur%20-%20La%20Force%20Collective%20-%20Le%20Jeu">
+            Envoyer mon avis
+          </a>
+        </div>
+
+        <div class="muted" style="margin-top:12px;">Lire les avis des utilisateurs</div>
+        <div class="actions">
+          <a class="btn btn-ghost" href="#temoignages">Bientôt</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ===== FIN AJOUT ===== -->
 
 <div class="card">
 <div class="head">Accès (bientôt)</div>
